@@ -1,0 +1,57 @@
+[
+  {
+    "id": 0,
+    "label": "root",
+    "parentId": null
+  },
+  {
+    "id": 1,
+    "label": "Parent 1",
+    "parentId": 0
+  },
+  {
+    "id": 2,
+    "label": "Parent 2",
+    "parentId": 0
+  },
+  {
+    "id": 3,
+    "label": "Child 1.1",
+    "parentId": 1
+  },
+  {
+    "id": 4,
+    "label": "Child 1.2",
+    "parentId": 1
+  },
+  {
+    "id": 5,
+    "label": "Child 2.1",
+    "parentId": 2
+  },
+  {
+    "id": 6,
+    "label": "Child 1.1.1",
+    "parentId": 3
+  },
+  {
+    "id": 7,
+    "label": "Child 1.1.2",
+    "parentId": 3
+  },
+  {
+    "id": 8,
+    "label": "Child 1.2.1",
+    "parentId": 4
+  },
+  {
+    "id": 9,
+    "label": "Child 2.1.1",
+    "parentId": 5
+  },
+  {
+    "id": 10,
+    "label": "Child 2.1.2",
+    "parentId": 5
+  }
+]
