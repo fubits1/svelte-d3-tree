@@ -1,16 +1,14 @@
 <script>
 export let node
-const isParent = node?.children?.length
+const isParent = node?.children?.length > 0
 </script>
 
 {#if isParent}
   <details open>
     <summary>{node?.data?.label} {#if isParent}[{node?.children?.length}]{/if}</summary>
-    {#if isParent}
       {#each node.children as child}
         <svelte:self node={child}/>
       {/each}
-    {/if}
   </details>
 {:else}
   <div class="leaf">{node?.data?.label}</div>
