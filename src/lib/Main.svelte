@@ -20,7 +20,8 @@ $: console.log({treeData});
 $: hierarchyData = hierarchy(treeData)
 
 /* graph */
-$: treeLayout = tree().size([(height / 2) - 10, width - 10]);
+const padding = 20
+$: treeLayout = tree().size([(height / 2) - padding, width - padding]);
 $: calc = treeLayout(hierarchyData)
 $: drawCurve = link(curve)
             .x(d => d.y)
@@ -35,12 +36,18 @@ let width, height
     <Root root={treeData} />
     <hr>
     <svg width={width} height={height / 2}>
-      <g transform="translate(5, 5)">
+      <g transform="translate({padding / 2}, {padding / 2})">
         {#each calc.descendants() as node}
-          <circle cx={node.y} cy={node.x} r=5 fill="yellowgreen"><title>{node?.data?.data?.label}</title></circle>
+          {@const label = node?.data?.data?.label}
+          {@const x = node.x}
+          {@const y = node.y}
+          <g class="entity">
+            <circle cx={y} cy={x} r=5 fill="yellowgreen"><title>{label}</title></circle>
+            <text x={y} y={x} text-anchor="middle" dy="-10" stroke="#242424" paint-order="stroke" fill="yellowgreen" font-size="10">{label}</text>
+          </g>
         {/each}
         {#each calc.links() as edge}
-          <path d={drawCurve(edge)} stroke="white" stroke-width="1" fill="none" />
+          <path d={drawCurve(edge)} stroke="slategrey" stroke-width="1" fill="none" />
         {/each}
       </g>
     </svg>
