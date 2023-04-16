@@ -1,7 +1,7 @@
 <script>
   import {stratify, hierarchy, tree} from "d3-hierarchy"
   import {curveBumpX as curve, link} from "d3-shape"
-  import Root from "./Node.svelte"
+  import Node from "./Node.svelte"
   export let data 
 
 function aggregateData(data) {
@@ -33,7 +33,7 @@ let width, height
 <code>{width} x {height}</code>
 <main>
   {#if treeData}
-    <Root node={treeData} />
+    <Node node={treeData} />
     <hr>
     <svg width={width} height={height / 2}>
       <g transform="translate({padding / 2}, {padding / 2})">
